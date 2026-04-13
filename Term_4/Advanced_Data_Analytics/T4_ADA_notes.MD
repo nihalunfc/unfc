@@ -85,14 +85,6 @@ In, 2013-14 Amazon (AWS), Google (GCP) and Microsoft (Azure); Recently DataBrick
 The Bottom Line:
 A CPU is scaled vertically when a single application becomes too demanding for its current resources. GPUs or TPUs are scaled horizontally when a task, such as AI training, is too large for any single machine.
 
-
-
-
-
-
-
-
-
-
 ### W2.2 Classnotes
-1. 
+1. Installed DataBricks.
+2. 
