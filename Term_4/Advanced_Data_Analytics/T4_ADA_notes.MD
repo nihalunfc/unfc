@@ -63,7 +63,7 @@ You need actual physical servers, be present at the place where servers are acce
 1.2 Cloud Computing:\
 In, 2013-14 Amazon (AWS), Google (GCP) and Microsoft (Azure); Recently DataBricks (very easy comapred to others, like learning python) offered cloud features. \
 **Scaling:** Increase or decrease the capabilities of technology used. Provides service and resource elasticity to upgrade or downgrade whenever needed. There are mainly 2 types of scaling. Let us compare it with processor types. \
-1.2.1 The Hardware (The "Trucks")\
+1.2.1 The Hardware (The "Trucks")
 
 | Hardware | Best For... | Analogy |
 | :--- | :--- | :--- |
@@ -71,7 +71,7 @@ In, 2013-14 Amazon (AWS), Google (GCP) and Microsoft (Azure); Recently DataBrick
 | **GPU** (Graphics Processing Unit) | Parallel tasks, gaming, and AI training. | A "Team of 1,000 Workers" doing small tasks at once. |
 | **TPU** (Tensor Processing Unit) | High-speed AI math (Google-specific). | A "Specialized Factory" built for one specific product. |
 <br />
-1.2.2 The Scaling Strategies \
+1.2.2 The Scaling Strategies 
 
 | Feature | **Vertical Scaling** (Scale Up) | **Horizontal Scaling** (Scale Out) |
 | :--- | :--- | :--- |
