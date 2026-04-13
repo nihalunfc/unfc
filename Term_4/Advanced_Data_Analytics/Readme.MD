@@ -1,5 +1,5 @@
 # Advanced Data Analytics - Term 4 - DAMO - 630 - 4
-**Prof.Hamed Afshari** ; *hamed.afshari@unfc.ca* \
+**Prof.Hamed Afshari** ; *hamed.afshari@unfc.ca* ; *h.h.afshari@gmail.com* \
 This Readme is a summary of all the works and classnotes of this subject during my course period.
 
 ## Week_1
@@ -14,7 +14,7 @@ This Readme is a summary of all the works and classnotes of this subject during 
 1.3 Variety: Data must be integrated across diverse formats, including text, audio, images, and structured data.\
 1.4 Veracity: High-stakes analytics demand strict data quality and reliability. \
 <br />
-Traditional systems struggle with this exponential data growth. The solution is scalability, which is a system's ability to handle increasing amounts of work by adding resources without losing performance.Scaling-Out (Horizontal Scaling): Adding more resources to a distributed environment, such as adding more web servers to support a busy site.Scaling-Up (Vertical Scaling): Adding more resources to an existing deployment, such as installing more RAM into a single server.
+Traditional systems struggle with this exponential data growth. The solution is scalability, which is a system's ability to handle increasing amounts of work by adding resources without losing performance.Scaling-Out (Horizontal Scaling): Adding more resources to a distributed environment, such as adding more web servers to support a busy site.Scaling-Up (Vertical Scaling): Adding more resources to an existing deployment, such as installing more RAM into a single server.\
 
 2. **Apache Hadoop Framework:** To manage big data horizontally, we use distributed frameworks like Apache Hadoop. Hadoop is an open-source framework that processes large datasets across clusters of computers.<br />
 *Key Components of Hadoop:* <br />
@@ -48,10 +48,49 @@ Traditional systems struggle with this exponential data growth. The solution is 
 *13 April 2026, 3.45 PM - 5.45 PM* 
 
 ### W2.1 To do / keynotes
-1. Submit class activity by sunday /
-2. Install / try GCP by next class
-3. Final presentation will be online.
+1. Submit class activity by sunday. \
+2. Install / try GCP by next class. \
+3. Final presentation will be online. \
 4. Project should cover 3 modules - databricks, sentiment analysis.
 
+### W1.1 Classnotes (Recap)
+**A. Scalability and Bigdata Challenges:** \
+1. Volume of data is increasing exponentially over time. (90% of world's data was created in last 2 years). We have 2 solutions to manage this. \
+1.1 Big Data Processing (In-House): \
+You need actual physical servers, be present at the place where servers are accesible, inaccesible from any other parts of the world, multiple higher ups involved in messy accesibility process, lots of communication, storage issues or limitations, very costly to set it up, very costly to manage, maintain, upgrade or replace, cooling systems etc.\
+1.1.1 Hadoop (a bit older)\
+1.1.2 Spark (a bit new, dividing the big data over several processors and compute to finally stich them back, This term's more focus will be on it)\
+1.2 Cloud Computing:\
+In, 2013-14 Amazon (AWS), Google (GCP) and Microsoft (Azure); Recently DataBricks (very easy comapred to others, like learning python) offered cloud features. \
+**Scaling:** Increase or decrease the capabilities of technology used. Provides service and resource elasticity to upgrade or downgrade whenever needed. There are mainly 2 types of scaling. Let us compare it with processor types. \
+1.2.1 The Hardware (The "Trucks")\
+| Hardware | Best For... | Analogy |
+| :--- | :--- | :--- |
+| **CPU** (Central Processing Unit) | General tasks, logic, and daily software. | A versatile "Manager" handling one task at a time. |
+| **GPU** (Graphics Processing Unit) | Parallel tasks, gaming, and AI training. | A "Team of 1,000 Workers" doing small tasks at once. |
+| **TPU** (Tensor Processing Unit) | High-speed AI math (Google-specific). | A "Specialized Factory" built for one specific product. |
+<br />
+1.2.2 The Scaling Strategies \
+| Feature | **Vertical Scaling** (Scale Up) | **Horizontal Scaling** (Scale Out) |
+| :--- | :--- | :--- |
+| **The Action** | Adding more power to **one** machine. | Adding **more** machines to a cluster. |
+| **CPU Example** | Upgrading from a 4-core to a 64-core CPU. | Connecting 10 servers to handle web traffic. |
+| **GPU/TPU Example** | Swapping an old GPU for a high-end 80GB model. | Linking 1,000 TPUs to train a model like Gemini. |
+| **The "Wall"** | Limited by physical chip size and heat. | Virtually unlimited; just keep adding more nodes. |
+| **Complexity** | Simple; usually requires no code changes. | Complex; requires "distributed" software. |
+<br />
+
+The Bottom Line:
+A CPU is scaled vertically when a single application becomes too demanding for its current resources. GPUs or TPUs are scaled horizontally when a task, such as AI training, is too large for any single machine.
+
+
+
+
+
+
+
+
+
+
 ### W2.2 Classnotes
-1. GCP
+1. 
