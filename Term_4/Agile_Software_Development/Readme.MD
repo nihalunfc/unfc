@@ -12,4 +12,13 @@ Watch video in Cascade since the class date was on a holiday.
 3. **Agile Manifesto:** Google it and Read it. Kind of a bible of Agile. Some people made it back in 2001 as a manual. 
 4. **Scrum:** We decide to meet eevry once in 2 weeks for a reveiw for 2 hours. Breaking down the structure to organize the project and actions. 
 5. **Kanban:** Kanban Board - a board which classifies activities into - Backlog, Doing, Review and Done - kind of methodical way of handling all the things to do at each stages of project. 
-6. Features --> Userstories : 
+
+##### 6. Features --> Userstories : 
+6.1 User Story#1: As a user, I want to be able to send a text message to a contact on my phone.
+Task #1: Load the contact list.
+Task #2: Writing a draft and hit the send button.
+Task #3: The recepient should get receive a notification.
+
+6.2 User Story#2: 
+6.3 User Story#3:
+6.4 User Story#4:
