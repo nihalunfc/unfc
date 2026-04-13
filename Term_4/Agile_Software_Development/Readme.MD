@@ -14,10 +14,10 @@ Watch video in Cascade since the class date was on a holiday.
 5. **Kanban:** Kanban Board - a board which classifies activities into - Backlog, Doing, Review and Done - kind of methodical way of handling all the things to do at each stages of project. 
 
 ##### 6. Features --> Userstories : 
-6.1 User Story#1: As a user, I want to be able to send a text message to a contact on my phone.
-Task #1: Load the contact list.
-Task #2: Writing a draft and hit the send button.
-Task #3: The recepient should get receive a notification.
+6.1 User Story#1: As a user, I want to be able to send a text message to a contact on my phone. *Review User stories*
+6.1.1 Task #1: Load the contact list. (2 days) `Break into tasks`
+6.1.2 Task #2: Writing a draft and hit the send button. (1 day)
+6.1.3 Task #3: The recepient should get receive a notification.
 
 6.2 User Story#2: 
 6.3 User Story#3:
