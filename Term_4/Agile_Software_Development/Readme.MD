@@ -1,11 +1,11 @@
-#All the files related to my coursework!
+# All the files related to my coursework!
 This Readme will give a rough intro to what all I did during my 12 week term activities.
 
-##Class Notes
-###Week_1
+## Class Notes
+### Week_1
 Watch video in Cascade since the class date was on a holiday.
 
-###Week_2 
+### Week_2 
 *13 April 2026; 12.45 - 2.45 PM CET*
 1. **Eventbrite** for finding opportunities, events, likeminded people online in Canada.
 2. **Approaches of Agile methodologies:** There are 3 approaches to achieve Agile Methods: Scrum, Extreme Programming (XP), Kanban - Methods used to deliver Agile.
