@@ -89,6 +89,21 @@ A CPU is scaled vertically when a single application becomes too demanding for i
 1. Installed DataBricks.
 2. Try with the files provided in cascade, do the module exercises though they are not graded.
 
-# Week_3 
+## Week_3 
 1. Submit the activities given in class during Week_2
 2. Practice the Databricks
+
+### Reading Summary
+#### Big Data Challenges and Solutions
+*Based on an article by Albert Christopher.*
+While big data is a game changer, organizations face significant hurdles when implementing data-driven solutions. Below is a simplified overview of the primary challenges and their respective solutions.
+
+| Challenge | Core Issue | Solution |
+| :--- | :--- | :--- |
+| **Volume (Huge Data)** | Data generation outpaces traditional on-premises storage capacity. | Migrate to **cloud storage solutions** for scalable and flexible infrastructure. |
+| **Multiple Sources** | Data originates from fragmented platforms (CRM, social media, databases). | Utilize **data integration & BI software** to map and combine data structures. |
+| **Multiple Formats** | Heterogeneous data is frequently unstructured or semi-structured. | Use **data processing tools** to reformat and standardize information. |
+| **Poor Quality** | Corrupted, outdated, or incomplete data yields inaccurate insights. | Implement **data governance applications** to authenticate, clean, and filter data. |
+| **Security Risks** | Sensitive information is highly vulnerable to cyberattacks and theft. | Apply **encryption, access controls, endpoint protection, and real-time monitoring**. |
+| **High Costs** | Infrastructure and data management require massive IT budgets. | Optimize expenses via **data tiering, careful archiving, and removing duplicates**. |
+| **Talent Shortage** | Lack of trained personnel with big data skills and experience. | Hire certified **data science specialists** and experienced big data professionals. |
