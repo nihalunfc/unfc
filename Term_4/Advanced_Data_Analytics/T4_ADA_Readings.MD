@@ -1,5 +1,6 @@
 # Reading Summaries
 ## Module_1
+*15 April 2026, 5PM EST*
 ### Big Data Challenges and Solutions
 *Based on an article by Albert Christopher.*
 While big data is a game changer, organizations face significant hurdles when implementing data-driven solutions. Below is a simplified overview of the primary challenges and their respective solutions.
