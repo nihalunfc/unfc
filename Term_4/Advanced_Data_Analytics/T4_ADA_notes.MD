@@ -88,3 +88,7 @@ A CPU is scaled vertically when a single application becomes too demanding for i
 ### W2.2 Classnotes
 1. Installed DataBricks.
 2. Try with the files provided in cascade, do the module exercises though they are not graded.
+
+# Week_3 
+1. Submit the activities given in class during Week_2
+2. Practice the Databricks
