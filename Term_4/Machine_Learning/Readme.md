@@ -2,8 +2,9 @@
 *Prof. Touraj Banirostam*
 
 This folder contains all my notes,exercises and test files for the ML course aling with the keynotes, classnotes etc.
-## Classnotes Module 1
+## Classnotes Week 1
 *14 April 2026, 1PM - 3PM*
+
 ### Supervised Learning (Classification)
 #### Classification vs. Regression
 Classification: The output variable is categorical. The goal is to assign eac input instance to one of the fixed category. \
@@ -59,6 +60,7 @@ Hyperparameters can be adjusted to fine-tune the accuracy.
 3. Can struggle with unbalanced datasets
 4. Not as powerful as tree based models
 
-## Classnotes Module 2
+## Classnotes Week 2 
 *14 April 2026, 1PM - 3PM*
 
+## Classnotes Week 3
