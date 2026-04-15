@@ -1,10 +1,11 @@
 # The Comprehensive Architecture of Artificial Intelligence & Machine Learning
-
-This document serves as a deep-dive reference guide into the mechanics, terminology, and architecture of Machine Learning (ML) and Artificial Intelligence (AI). It is structured to provide a clear transition from foundational concepts to advanced model architectures.
+---
 
 *Nihal V Sulaiman, Masters of Data Analytics, University of Niagara Falls Canada*
 *Created: 15 April 2026*
----
+
+This document serves as a deep-dive reference guide into the mechanics, terminology, and architecture of Machine Learning (ML) and Artificial Intelligence (AI). It is structured to provide a clear transition from foundational concepts to advanced model architectures.
+
 
 ## 1. The Anatomy of Learning: Parameters vs. Hyperparameters
 
