@@ -28,3 +28,6 @@ Watch video in Cascade since the class date was on a holiday.
 *20 April 2026; 12.45 - 2.45 PM EDT*
 
 1. Source Code Management System (SCM)
+2. Installed Git for Windows v2.53.0(3) Release Notes
+3. Class activity - to create a github repo and perform certain actions. 
+4. Clone the repo to local machine and perform certain commands to practice operations, pull push commit clone.
