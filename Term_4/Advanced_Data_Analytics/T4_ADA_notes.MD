@@ -90,6 +90,14 @@ A CPU is scaled vertically when a single application becomes too demanding for i
 2. Try with the files provided in cascade, do the module exercises though they are not graded.
 
 ## Week_3 
-1. Submit the activities given in class during Week_2
-2. Practice the Databricks
+*20 April 2026, 3.45PM - 5.45PM EDT*
+
+###  Classnotes
+1. Solutions to Bigdata Challenges: Multi-core Parallel node processing
+1.1 Hadoop (HDFS) - It is batch processing
+1.2 Spark (pyspark)
+2. Association Rules Mining for Large Scale Transactions Dataset - Correlations
+3. Apriori Algorithm
+4. Generating Frequent Itemsets
+5. Generating Association Rules
 
