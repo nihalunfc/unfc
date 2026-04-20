@@ -113,7 +113,7 @@ The cloud analytics market is dominated by major infrastructure providers and sp
 * **Data Observability:** As pipelines become more complex, automated platforms that monitor the health, quality, and accuracy of the data (catching schema drift or anomalies before they hit the dashboard) will become mandatory standard practice.
 
 ## Module_3: Affinity Analysis & Association Rules Mining
-*20 April 2026*
+*20 April 2026, 10.00 AM EST*
 
 ### Introduction
 Affinity Analysis is a data mining technique used to discover co-occurrence relationships between activities performed by specific individuals or groups. In a commercial context, this is most commonly known as **Market Basket Analysis (MBA)**.
