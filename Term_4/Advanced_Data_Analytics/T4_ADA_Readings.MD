@@ -111,3 +111,75 @@ The cloud analytics market is dominated by major infrastructure providers and sp
 * **Serverless Architectures:** The transition toward fully serverless data platforms will continue, where developers write code and queries without ever thinking about the underlying server provisioning, clusters, or infrastructure maintenance.
 * **Real-Time Data Streaming:** Batch processing (analyzing data overnight) is being replaced by real-time stream processing, allowing businesses to react to data, fraud, or system failures the millisecond they occur.
 * **Data Observability:** As pipelines become more complex, automated platforms that monitor the health, quality, and accuracy of the data (catching schema drift or anomalies before they hit the dashboard) will become mandatory standard practice.
+
+## Module_3: Affinity Analysis & Association Rules Mining
+*20 April 2026*
+
+### Introduction
+Affinity Analysis is a data mining technique used to discover co-occurrence relationships between activities performed by specific individuals or groups. In a commercial context, this is most commonly known as **Market Basket Analysis (MBA)**.
+
+The objective is to find "rules" that predict the occurrence of an item based on the occurrences of other items in the same transaction.
+
+---
+
+### Core Concepts & Metrics
+
+To identify meaningful patterns, we use three primary mathematical metrics. Suppose we have a rule: **{Antecedent} → {Consequent}** (e.g., {Bread} → {Butter}).
+
+#### 1. Support
+Measures how frequently the itemset appears in the dataset.
+- **Formula:** `Support(A → B) = Count(A ∪ B) / Total Transactions`
+- **Utility:** Helps filter out rare item combinations that are not statistically significant.
+
+#### 2. Confidence
+Measures how often the consequent appears in transactions that contain the antecedent.
+- **Formula:** `Confidence(A → B) = Support(A ∪ B) / Support(A)`
+- **Utility:** Indicates the reliability of the inference made by the rule.
+
+#### 3. Lift
+Measures the strength of the association over the "random" baseline.
+- **Formula:** `Lift(A → B) = Confidence(A → B) / Support(B)`
+- **Interpretation:**
+  - **Lift > 1:** Positive correlation (The items are likely to be bought together).
+  - **Lift = 1:** Independence (No relationship).
+  - **Lift < 1:** Negative correlation (The items are "substitutes").
+
+---
+
+### Algorithms
+
+#### The Apriori Algorithm
+The Apriori algorithm uses a "bottom-up" approach. It relies on the **Apriori Property**: *All non-empty subsets of a frequent itemset must also be frequent.*
+
+**The Process:**
+1. **Candidate Generation:** Generate all possible sets of items.
+2. **Pruning:** Remove itemsets that do not meet the `Minimum Support` threshold.
+3. **Iteration:** Combine remaining sets to find larger frequent itemsets.
+
+#### FP-Growth (Frequent Pattern Growth)
+FP-Growth is a faster alternative to Apriori. It eliminates the expensive candidate generation step.
+- **How it works:** It compresses the database into a compact data structure called an **FP-Tree**.
+- **Efficiency:** It requires only **two scans** of the database, making it significantly more efficient for large-scale "Big Data" applications.
+
+---
+
+### Python Implementation
+
+For professional implementations, the `mlxtend` library is the standard. Data must be **One-Hot Encoded** (a sparse matrix of 1s and 0s) before processing.
+
+```python
+from mlxtend.frequent_patterns import apriori, association_rules, fpgrowth
+import pandas as pd
+
+# 1. Load your One-Hot Encoded DataFrame
+# df = ... 
+
+# 2. Find frequent itemsets using Apriori
+frequent_itemsets = apriori(df, min_support=0.05, use_colnames=True)
+
+# 3. Generate rules
+rules = association_rules(frequent_itemsets, metric="lift", min_threshold=1.2)
+
+# 4. Sort and View
+rules = rules.sort_values('lift', ascending=False)
+print(rules[['antecedents', 'consequents', 'support', 'confidence', 'lift']])
