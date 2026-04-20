@@ -100,4 +100,4 @@ A CPU is scaled vertically when a single application becomes too demanding for i
 3. Apriori Algorithm
 4. Generating Frequent Itemsets
 5. Generating Association Rules
-
+6. Priori analysis for multi city booking
