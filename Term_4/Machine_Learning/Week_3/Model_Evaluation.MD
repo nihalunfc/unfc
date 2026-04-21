@@ -108,28 +108,6 @@ The data is split into a single training set and a single test set (e.g., 80/20 
 
 **Implementation Example (Python via Scikit-Learn)**
 
-```python
-from sklearn.datasets import load_breast_cancer
-from sklearn.linear_model import LogisticRegression
-from sklearn.model_selection import StratifiedKFold, cross_val_score
-import numpy as np
-
-# Load dataset
-data = load_breast_cancer()
-X, y = data.data, data.target
-
-# Instantiate model
-model = LogisticRegression(max_iter=10000)
-
-# Define Stratified 5-Fold CV
-cv = StratifiedKFold(n_splits=5, shuffle=True, random_state=42)
-
-# Execute cross-validation
-scores = cross_val_score(model, X, y, cv=cv, scoring='accuracy')
-
-print(f"Fold Scores: {scores}")
-print(f"Mean Accuracy: {np.mean(scores):.4f} (+/- {np.std(scores) * 2:.4f})")
-
 
 ## Model Parameters vs Hyperparameters
 
