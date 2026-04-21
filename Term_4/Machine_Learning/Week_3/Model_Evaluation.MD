@@ -129,3 +129,46 @@ scores = cross_val_score(model, X, y, cv=cv, scoring='accuracy')
 
 print(f"Fold Scores: {scores}")
 print(f"Mean Accuracy: {np.mean(scores):.4f} (+/- {np.std(scores) * 2:.4f})")
+
+
+## Model Parameters vs. Hyperparameters
+
+Understanding the distinction between parameters and hyperparameters is fundamental to model optimization.
+
+* **Model Parameters:** Internal variables learned automatically by the algorithm during the training process based on the input data. They define the internal structure of the model.
+    * *Examples:* The weights and biases in a neural network, the coefficients ($\beta$) in a linear/logistic regression model, or the specific split thresholds at the nodes of a decision tree.
+* **Hyperparameters:** External configurations set manually by the analyst *before* the training process begins. They dictate the architecture of the model and control the learning dynamic.
+    * *Examples:* The learning rate ($\alpha$), the number of hidden layers in a network, the maximum depth of a decision tree (`max_depth`), the number of estimators in a Random Forest, or the regularization penalty ($C$ or $\lambda$).
+
+---
+
+## Hyperparameter Tuning Methods
+
+Tuning is the algorithmic search for the optimal hyperparameter vector to maximize a specific evaluation metric.
+
+### 1. Grid Search
+An exhaustive search over a manually specified subset of the hyperparameter space. The algorithm evaluates the Cartesian product of all defined parameters.
+
+* **Pros:** Guaranteed to find the optimal combination *within the defined grid*. Ensures comprehensive evaluation.
+* **Cons:** Suffers severely from the "Curse of Dimensionality." If you test 5 values for 4 different hyperparameters, that requires 625 model training iterations. If using 5-Fold CV, that scales to 3,125 fits. Computationally prohibitive for large models.
+
+### 2. Random Search
+Instead of testing every combination, Random Search samples hyperparameter combinations randomly from a statistical distribution for a predefined number of iterations.
+
+* **Pros:** Statistically proven to be more efficient than Grid Search. In high-dimensional spaces, some hyperparameters matter more than others. Random Search explores a wider variety of values for the important parameters rather than repeatedly testing the exact same values across a rigid grid.
+* **Cons:** Not guaranteed to find the absolute global optimum, as the search is stochastic.
+
+### 3. Advanced Alternative: Bayesian Optimization
+While Grid and Random search are "blind" (they do not learn from previous iterations), Bayesian Optimization builds a probabilistic surrogate model of the objective function. It uses past evaluation results to intelligently choose the next set of hyperparameters to test, balancing exploration of new spaces with exploitation of known good spaces.
+
+---
+
+## Connecting Evaluation & Improvement
+
+Evaluation and optimization are not distinct, isolated phases; they form a continuous, iterative loop in the analytical lifecycle:
+
+1.  **Define the Metric:** Choose an evaluation metric that aligns tightly with the specific analytical objective (e.g., prioritizing F1-Score over Accuracy for imbalanced anomaly detection).
+2.  **Establish a Validation Strategy:** Implement an appropriate cross-validation scheme (like Stratified K-Fold) to ensure that the chosen metric reflects true generalization rather than statistical noise.
+3.  **Establish a Baseline:** Train a default, un-tuned model to establish a performance floor. Diagnose for high bias (underfitting) or high variance (overfitting) using learning curves.
+4.  **Optimize:** Utilize Grid Search or Random Search to adjust hyperparameters. The search mechanism relies entirely on the CV metrics to navigate the parameter space effectively.
+5.  **Final Assessment:** After identifying the optimal model architecture, perform a final, un-biased evaluation on a completely untouched holdout test set to confirm real-world readiness.
