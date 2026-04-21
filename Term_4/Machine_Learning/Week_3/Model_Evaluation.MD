@@ -131,7 +131,7 @@ print(f"Fold Scores: {scores}")
 print(f"Mean Accuracy: {np.mean(scores):.4f} (+/- {np.std(scores) * 2:.4f})")
 
 
-## Model Parameters vs. Hyperparameters
+## Model Parameters vs Hyperparameters
 
 Understanding the distinction between parameters and hyperparameters is fundamental to model optimization.
 
