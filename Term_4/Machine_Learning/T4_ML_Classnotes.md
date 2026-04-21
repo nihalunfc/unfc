@@ -64,3 +64,11 @@ Hyperparameters can be adjusted to fine-tune the accuracy.
 *14 April 2026, 1PM - 3PM*
 
 ## Classnotes Week 3
+*21 April 2026, 1PM - 3PM*
+
+1. Confusion matrix - false positive, true positive, false negative and true negative
+2. Key classification metrics: Accuracy = Proportion of correct preditions out of the total predictions made by the model.
+3. Area Under the ROC Curve (AUC) - TPR, FPR,AUC,ROC, Definition, Range and Perforrmance.
+4. Cross validation Techniques: K-Fold, Stratified K-Fold,LOOCV,Holdout method
+5. Overfitting and challenges
+6. Hyperparameter tuning approaches
