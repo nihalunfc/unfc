@@ -9,5 +9,5 @@ The assignment has below structure.\
 2. Part 1 - Agile Delivery Approach Rationale
 3. Part 2: Actions at Key Delivery Moments
 4. Part 3: Evidence of Agile Values and Principles
-5. Conclusion
+5. Conclusion \
 *Identification done by Souren*
