@@ -6,7 +6,7 @@
 
 | Challenge | Task | Description / Deliverable | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| **Challenge 1** | **Task I: EDA** | Load data, report distributions (num + cat) | INCOMPLETE | Needs plots for `HealthInsurance.csv` |
+| 1 | **Task I: EDA** | Load data, report distributions (num + cat) | INCOMPLETE | Needs plots for `HealthInsurance.csv` |
 | | | Highlight privacy-sensitive attributes | INCOMPLETE | Write markdown in notebook |
 | | | Visualize correlations between features | INCOMPLETE | Correlation heatmap |
 | | **Task II: Baseline** | Apply classical method (Faker/Bootstrapping) | INCOMPLETE | Implemented Bootstrapping |
@@ -20,7 +20,7 @@
 | | | Utility (TSTR: Train Synth, Test Real) | INCOMPLETE | ML classification/regression test |
 | | | Privacy (Row-level duplication check) | |INCOMPLETE | |
 | | | Business interpretation (Markdown) | INCOMPLETE | Write conclusion for startup |
-| **Challenge 2** | **Task I: Setup** | Upload taxi data to HDFS / Cloud | INCOMPLETE | Bash/HDFS commands |
+| 2 | **Task I: Setup** | Upload taxi data to HDFS / Cloud | INCOMPLETE | Bash/HDFS commands |
 | | | View contents in HDFS | INCOMPLETE | |
 | | | PySpark: Schema, row count, sample records | INCOMPLETE | |
 | | | PySpark: Basic stats (avg fare, dist, passengers) | INCOMPLETE | |
@@ -32,5 +32,5 @@
 | | | Report top 10 rules (support, confidence, lift) | INCOMPLETE | |
 | | | Interpret urban mobility insights | INCOMPLETE | Write markdown in notebook |
 | | **Task IV: KMeans** | Segment by avg dist, avg fare, time-of-day | INCOMPLETE | VectorAssembler & KMeans |
-| | | Report cluster centers as rider personas | ⬜ INCOMPLETE | |
-| | | Suggest tailored services/pricing | ⬜ INCOMPLETE | Write markdown in notebook |
+| | | Report cluster centers as rider personas | INCOMPLETE | |
+| | | Suggest tailored services/pricing | INCOMPLETE | Write markdown in notebook |
