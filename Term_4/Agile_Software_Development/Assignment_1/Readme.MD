@@ -11,3 +11,16 @@ The assignment has below structure.\
 4. Part 3: Evidence of Agile Values and Principles
 5. Conclusion \
 *Identification done by Souren*
+
+## Status
+1. Souren Created the title page, Introductiona nd Part 1 and 2 \
+2. Gerald completed the part 3
+3. Nihal completed the part 4
+4. Ansu completed the conclusion, reference section and APA formatting.
+5. Nihal did the proof reading.
+6. Ansu, Souren and Gerald did the final verification.
+
+## Credits
+
+1. Grammarly: Checking Plagiarism
+2. Google Gemini: APA Formatting
