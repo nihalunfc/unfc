@@ -1,2 +1,5 @@
-# Group Assignment
-## Nihal, SOuren, Ansu, Gerald
+# Group Assignment_1
+## Nihal, Souren, Ansu, Gerald
+
+## Stages
+Divided the entire Assignment into 4 parts. Assigned Each parts to indivitual membes of the group.
