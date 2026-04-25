@@ -6,7 +6,7 @@
 
 | Challenge | Task | Description / Deliverable | Status | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| 1 | **Task I: EDA** | Load data, report distributions (num + cat) | INCOMPLETE | Needs plots for `HealthInsurance.csv` |
+| 1 | **Task I: EDA** | Load data, report distributions (num + cat) | DONE| Needs plots for `HealthInsurance.csv` |
 | | | Highlight privacy-sensitive attributes | INCOMPLETE | Write markdown in notebook |
 | | | Visualize correlations between features | INCOMPLETE | Correlation heatmap |
 | | **Task II: Baseline** | Apply classical method (Faker/Bootstrapping) | INCOMPLETE | Implemented Bootstrapping |
