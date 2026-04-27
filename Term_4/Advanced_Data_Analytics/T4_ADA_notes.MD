@@ -101,3 +101,13 @@ A CPU is scaled vertically when a single application becomes too demanding for i
 4. Generating Frequent Itemsets
 5. Generating Association Rules
 6. Priori analysis for multi city booking
+
+## Week_4
+*27 April 2026, 3.45 PM = 5.45 PM*
+
+### Classnotes
+1. Classical methods of Data Synthesis
+1.1 Random Sampling: From known distributions
+1.2 Bootstrapping: Resampling with replacement
+1.3 Noise Injection: Add realistic variability
+1.4 Rule/Template based: Generate logical domain-relevant data (eg: usingFaker)
