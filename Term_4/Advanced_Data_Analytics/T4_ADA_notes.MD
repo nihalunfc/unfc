@@ -107,7 +107,13 @@ A CPU is scaled vertically when a single application becomes too demanding for i
 
 ### Classnotes
 1. Classical methods of Data Synthesis
-1.1 Random Sampling: From known distributions
-1.2 Bootstrapping: Resampling with replacement
-1.3 Noise Injection: Add realistic variability
+1.1 Random Sampling: From known distributions \
+1.2 Bootstrapping: Resampling with replacement \
+1.3 Noise Injection: Add realistic variability \
 1.4 Rule/Template based: Generate logical domain-relevant data (eg: usingFaker)
+2. Probabilistic and Statistical Modeling
+2.1 Techniques: Copulas, Bayesian Models, PGMs
+3. ML based Generation
+3.1 When: Complex, highdimensional and mixed data \
+3.2 Advantages: Learn non-linear relationships, Handles mixed data types, Reduces manual modeling effort \
+3.3 Tools: GANs, VAEs, SDV library
