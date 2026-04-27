@@ -37,4 +37,4 @@ Watch video in Cascade since the class date was on a holiday.
 
 1. Scrum
 2. Kanban
-
+3. Why start with scrun? because it is straight forward and focused. It operates in shoty repeated cycles and spints which lasts around 2 weeks.
