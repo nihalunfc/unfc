@@ -31,3 +31,10 @@ Watch video in Cascade since the class date was on a holiday.
 2. Installed Git for Windows v2.53.0(3) Release Notes
 3. Class activity - to create a github repo and perform certain actions. 
 4. Clone the repo to local machine and perform certain commands to practice operations, pull push commit clone.
+
+### Week_4
+*27 April 2026; 12.45 - 2.45 PM EDT*
+
+1. Scrum
+2. Kanban
+
