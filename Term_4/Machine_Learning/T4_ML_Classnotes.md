@@ -72,3 +72,16 @@ Hyperparameters can be adjusted to fine-tune the accuracy.
 4. Cross validation Techniques: K-Fold, Stratified K-Fold,LOOCV,Holdout method
 5. Overfitting and challenges
 6. Hyperparameter tuning approaches
+
+## Classnotes Week 4
+*28 April 2026, 1PM - 3PM*
+
+1. Dimensionality
+2. Dimensionality reduction - Feature selection, Feature extraction
+3. Key techniques - PCA - principal component analysis and LDA - Linear Discriminant Analysis
+4. How PCA Works? (billconnelly.net/?p=697)
+5. LDA
+6. Feature selection - Methods of feature selection - Filter Methods and Wrapper Methods, evolutionary computing for large datasets
+7. Feature extraction -
+8. Curse of dimensionality
+9. mentimeter time
