@@ -103,7 +103,7 @@ A CPU is scaled vertically when a single application becomes too demanding for i
 6. Priori analysis for multi city booking
 
 ## Week_4
-*27 April 2026, 3.45 PM = 5.45 PM*
+*27 April 2026, 3.45 PM - 5.45 PM*
 
 ### Classnotes
 1. Classical methods of Data Synthesis
@@ -117,3 +117,10 @@ A CPU is scaled vertically when a single application becomes too demanding for i
 3.1 When: Complex, highdimensional and mixed data \
 3.2 Advantages: Learn non-linear relationships, Handles mixed data types, Reduces manual modeling effort \
 3.3 Tools: GANs, VAEs, SDV library
+
+## Week_5
+*04 May 2026, 3.45 PM - 5.45 PM*
+
+### Classnotes
+1. Mining Data Streams
+2. Decaying Window
