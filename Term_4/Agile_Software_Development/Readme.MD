@@ -45,3 +45,5 @@ Watch video in Cascade since the class date was on a holiday.
 *11 May 2026, 12.45 PM - 2.45 PM*
 
 1. Team Liftoff
+2. Created project in guthub, practised creating issues, closing them weith group members. 
+3. In class activity (Yet to ocmplete). 
