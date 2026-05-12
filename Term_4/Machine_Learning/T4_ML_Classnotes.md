@@ -85,3 +85,22 @@ Hyperparameters can be adjusted to fine-tune the accuracy.
 7. Feature extraction -
 8. Curse of dimensionality
 9. mentimeter time
+
+## Classnotes Week 6
+*12 May 2026, 1-3PM*
+
+SVM - Support Vector Machines are supervised learning models for classification and regression that find the hyperplane maximizing the margin between classes, defined by support vectors. They handle high-dimensional data efficiently and, with kernel functions, solve non-linear problems by mapping inputs into higher-dimensional spaces. SVMs often offer robust generalization and are widely applied in text classification, image recognition, and biomedical analysis. \
+
+1. SVM - Support Vector Machines
+2. Step by Step Algorithm (Linear SVM).
+3. Hard Margin SVM
+4. Kernel Trick
+5. Common Kernels
+   5.1 Linear
+   5.2 Polynomial
+   5.3 RBF
+   5.4 Sigmoid
+6. Selecting and Tuning Kernels
+   6.1 Start Simple, Default to RBF, Leverage domain insight, Grid search and Cross Validation, Balance Accuracy and Interpretability.
+7. Step by Step Algorithm (Non-Linear SVM)
+8. SVM For regression (SVR): Support Vector Regression (SVR) adapts the core ideas of Support Vector Machines—margin maximization and kernel methods—to regression tasks, where the goal is to predict continuous outcomes rather than discrete class labels. Although the underlying optimization still relies on support vectors and convex programming, SVR introduces key modifications to handle real-valued targets.
