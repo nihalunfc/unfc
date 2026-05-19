@@ -115,3 +115,4 @@ SVM - Support Vector Machines are supervised learning models for classification 
 5. Distance metric in K-Means /; Euclidean, Manhattan, Minkowski, Chebyshev, Cosine, Mahalanobis
 6. K-means++ and K-Medoids
 7. DBSCAN
+8. PCA Clustering Method
