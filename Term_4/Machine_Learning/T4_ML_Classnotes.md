@@ -104,3 +104,14 @@ SVM - Support Vector Machines are supervised learning models for classification 
    6.1 Start Simple, Default to RBF, Leverage domain insight, Grid search and Cross Validation, Balance Accuracy and Interpretability.
 7. Step by Step Algorithm (Non-Linear SVM)
 8. SVM For regression (SVR): Support Vector Regression (SVR) adapts the core ideas of Support Vector Machines—margin maximization and kernel methods—to regression tasks, where the goal is to predict continuous outcomes rather than discrete class labels. Although the underlying optimization still relies on support vectors and convex programming, SVR introduces key modifications to handle real-valued targets.
+
+## Classnotes Week 7
+*19 May 2026, 1-3 PM*
+
+1. Unsupervised Learning
+2. You will have to explain why you choose unsupervised or supervised in next term, during the capstone
+3. K-Means clustering - partition n data points into k clusters based on similarity.
+4. CHoosing the right number of clusters (K).
+5. Distance metric in K-Means /; Euclidean, Manhattan, Minkowski, Chebyshev, Cosine, Mahalanobis
+6. K-means++ and K-Medoids
+7. DBSCAN
