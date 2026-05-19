@@ -39,73 +39,127 @@ Once you run the script provided below, it will export a high-resolution compari
 
 ## Getting Started
 
-### Prerequisites
-
-Install the required dependencies using `pip`:
-
-```bash
-pip install numpy matplotlib scikit-learn scikit-learn-extra
-```
-
 ### Python Implementation Script
 
 Run the following script to generate the synthetic data, perform the clustering, and automatically export the comparison image.
 
 ```python
+import os
 import matplotlib.pyplot as plt
 import numpy as np
+from matplotlib.animation import FuncAnimation
 from sklearn.cluster import KMeans
-from sklearn_extra.cluster import KMedoids
 
-# 1. Generate synthetic data with 3 distinct groups
+# ==========================================
+# 1. SETUP DATA AND PURE-NUMPY ALGORITHMS
+# ==========================================
+
+# Generate reproducible synthetic data with 3 groups + extreme outliers
 np.random.seed(42)
-group1 = np.random.normal(loc=[1, 1], scale=0.5, size=(50, 2))
-group2 = np.random.normal(loc=[5, 5], scale=0.6, size=(50, 2))
-# Group 3 includes extreme outliers to show the difference
-group3 = np.random.normal(loc=[9, 2], scale=0.5, size=(45, 2))
-outliers = np.array([[14, 2], [14.5, 2.5], [15, 1.5]])  
+group1 = np.random.normal(loc=[2.0, 2.0], scale=0.5, size=(50, 2))
+group2 = np.random.normal(loc=[7.0, 8.0], scale=0.6, size=(50, 2))
+group3 = np.random.normal(loc=[12.0, 3.0], scale=0.5, size=(45, 2))
+outliers = np.array([[16.0, 2.0], [16.5, 2.5], [17.0, 1.5]])  
 X = np.vstack([group1, group2, group3, outliers])
-
-# Define number of clusters
 k = 3
 
-# 2. Fit K-Means++ 
-kmeans = KMeans(n_clusters=k, init='k-means++', random_state=42, n_init=10)
-kmeans_labels = kmeans.fit_predict(X)
-kmeans_centers = kmeans.cluster_centers_
+def run_kmeans_steps(X, k, max_iter=10):
+    """Executes K-Means++ and logs the history of each iteration step."""
+    # Use sklearn's KMeans with k-means++ initialization to get initial centers
+    km = KMeans(n_clusters=k, init='k-means++', max_iter=1, n_init=1, random_state=42)
+    km.fit(X)
+    centers = km.cluster_centers_
+    
+    history = []
+    for _ in range(max_iter):
+        # Assign steps
+        distances = np.linalg.norm(X[:, np.newaxis] - centers, axis=2)
+        labels = np.argmin(distances, axis=1)
+        history.append((centers.copy(), labels.copy()))
+        # Update steps (Virtual Averages)
+        new_centers = np.array([X[labels == i].mean(axis=0) if len(X[labels == i]) > 0 else centers[i] for i in range(k)])
+        if np.allclose(centers, new_centers):
+            break
+        centers = new_centers
+    return history
 
-# 3. Fit K-Medoids
-kmedoids = KMedoids(n_clusters=k, random_state=42)
-kmedoids_labels = kmedoids.fit_predict(X)
-kmedoids_centers = kmedoids.cluster_centers_
+def run_kmedoids_steps(X, k, max_iter=10):
+    """Executes a custom K-Medoids PAM loop tracking every iteration step."""
+    # Seed initial medoids safely from the data array
+    initial_idx = np.random.RandomState(42).choice(len(X), k, replace=False)
+    medoids = X[initial_idx].copy()
+    
+    history = []
+    for _ in range(max_iter):
+        # Assign steps based on closest medoid
+        distances = np.linalg.norm(X[:, np.newaxis] - medoids, axis=2)
+        labels = np.argmin(distances, axis=1)
+        history.append((medoids.copy(), labels.copy()))
+        
+        # Update steps (Must swap to an actual data point that minimizes cluster cost)
+        new_medoids = medoids.copy()
+        for i in range(k):
+            cluster_points = X[labels == i]
+            if len(cluster_points) == 0:
+                continue
+            # Compute total distance from all points in cluster to every candidate point
+            pairwise_dist = np.linalg.norm(cluster_points[:, np.newaxis] - cluster_points, axis=2)
+            best_idx = np.argmin(pairwise_dist.sum(axis=1))
+            new_medoids[i] = cluster_points[best_idx]
+            
+        if np.allclose(medoids, new_medoids):
+            break
+        medoids = new_medoids
+    return history
 
-# 4. Plot the comparison side-by-side
+# Run both tracking engines
+kmeans_history = run_kmeans_steps(X, k)
+kmedoids_history = run_kmedoids_steps(X, k)
+max_frames = max(len(kmeans_history), len(kmedoids_history))
+
+# ==========================================
+# 2. PLOTTING AND ANIMATION ENGINE
+# ==========================================
+
 fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(14, 6), sharey=True)
 
-# Left Plot: K-Means++
-ax1.scatter(X[:, 0], X[:, 1], c=kmeans_labels, cmap='viridis', alpha=0.6, edgecolors='k')
-ax1.scatter(kmeans_centers[:, 0], kmeans_centers[:, 1], c='red', marker='X', s=250, 
-            label='Calculated Centroids\n(Virtual Average)', edgecolors='black')
-ax1.set_title('K-Means++ Clustering', fontsize=14, fontweight='bold')
-ax1.set_xlabel('Feature X')
-ax1.set_ylabel('Feature Y')
-ax1.grid(True, linestyle='--', alpha=0.5)
-ax1.legend(loc='upper left')
+def update(frame):
+    ax1.clear()
+    ax2.clear()
+    
+    # --- Frame selection logic for K-Means ---
+    km_frame = min(frame, len(kmeans_history) - 1)
+    km_centers, km_labels = kmeans_history[km_frame]
+    ax1.scatter(X[:, 0], X[:, 1], c=km_labels, cmap='viridis', alpha=0.6, edgecolors='k')
+    ax1.scatter(km_centers[:, 0], km_centers[:, 1], c='red', marker='X', s=250, 
+                label='Calculated Centroids\n(Virtual Average)', edgecolors='black', zorder=5)
+    ax1.set_title(f'K-Means++ Clustering (Step {km_frame + 1})', fontsize=13, fontweight='bold')
+    ax1.set_xlabel('Feature X')
+    ax1.set_ylabel('Feature Y')
+    ax1.grid(True, linestyle='--', alpha=0.4)
+    ax1.legend(loc='upper left')
+    
+    # --- Frame selection logic for K-Medoids ---
+    kmed_frame = min(frame, len(kmedoids_history) - 1)
+    kmed_centers, kmed_labels = kmedoids_history[kmed_frame]
+    ax2.scatter(X[:, 0], X[:, 1], c=kmed_labels, cmap='viridis', alpha=0.6, edgecolors='k')
+    ax2.scatter(kmed_centers[:, 0], kmed_centers[:, 1], c='cyan', marker='D', s=180, 
+                label='Actual Medoids\n(Real Data Points)', edgecolors='black', zorder=5)
+    ax2.set_title(f'K-Medoids Clustering (Step {kmed_frame + 1})', fontsize=13, fontweight='bold')
+    ax2.set_xlabel('Feature X')
+    ax2.grid(True, linestyle='--', alpha=0.4)
+    ax2.legend(loc='upper left')
+    
+    plt.tight_layout()
 
-# Right Plot: K-Medoids
-ax2.scatter(X[:, 0], X[:, 1], c=kmedoids_labels, cmap='viridis', alpha=0.6, edgecolors='k')
-ax2.scatter(kmedoids_centers[:, 0], kmedoids_centers[:, 1], c='cyan', marker='D', s=180, 
-            label='Actual Medoids\n(Real Data Points)', edgecolors='black')
-ax2.set_title('K-Medoids Clustering', fontsize=14, fontweight='bold')
-ax2.set_xlabel('Feature X')
-ax2.grid(True, linestyle='--', alpha=0.5)
-ax2.legend(loc='upper left')
+# Render convergence animation loop smoothly
+ani = FuncAnimation(fig, update, frames=max_frames, interval=1000, repeat=True)
 
-plt.tight_layout()
-
-# 5. Save the plot as a PNG image for GitHub
+# Save the final resolved frame as a clean static PNG file for GitHub
+update(max_frames - 1)
 plt.savefig('clustering_comparison.png', dpi=300, bbox_inches='tight')
-print("Plot successfully saved as 'clustering_comparison.png'")
+print("Saved final convergence frame asset to 'clustering_comparison.png'")
 
+# Display visualization panel
 plt.show()
 ```
