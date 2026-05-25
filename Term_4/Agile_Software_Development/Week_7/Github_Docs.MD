@@ -151,4 +151,4 @@ As part of that, we've learned how to:
 
 ## Further reading
 
-* [GitHub flow](/en/get-started/using-github/github-flow)
+* [Source](https://docs.github.com/en/get-started/start-your-journey/hello-world)
