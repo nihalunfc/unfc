@@ -388,6 +388,8 @@ for epoch in range(num_epochs):
         
         # 5. Update Weights (Linear Algebra)
         optimizer.step()
+```
+
   ### D. The Biological Analogy: Practice and Sleep Consolidation
    How does the training loop map to human learning?
 
