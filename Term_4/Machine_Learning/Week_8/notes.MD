@@ -274,3 +274,118 @@ In classification tasks, an FNN is essentially drawing a **decision boundary** i
 * A linear model (no hidden layers) can only draw a straight hyperplane. If the data is shaped like a donut (concentric circles), a linear model fails entirely.
 * An FNN with hidden layers warps and folds the coordinate space until those concentric circles can be separated by a straight line. The output layer then just draws that final straight line. The hidden layers exist solely to unt
 
+## 14. The Learning Engine: Backpropagation and Optimization
+While the Feedforward pass makes a prediction, **Backpropagation** (backward propagation of errors) is the mechanism that corrects it. It is the algorithm used to calculate the gradient of the loss function with respect to every single weight and bias in the network. 
+
+Conceptually, backpropagation asks one question: *"If I tweak this specific weight by a tiny amount, how much will the final error change?"* By answering this for every parameter, the network knows exactly how to adjust itself to improve.
+
+### A. The Core Mathematics: The Chain Rule of Calculus
+Backpropagation is simply the computationally efficient application of the multi-variable **chain rule** from calculus.
+
+Let's define the components:
+* $L$: The overall Loss Function (e.g., Mean Squared Error or Cross-Entropy).
+* $w_{jk}^{(l)}$: The weight from the $k^{th}$ neuron in layer $(l-1)$ to the $j^{th}$ neuron in layer $(l)$.
+* $b_j^{(l)}$: The bias of the $j^{th}$ neuron in layer $(l)$.
+* $z_j^{(l)}$: The weighted sum input to the neuron.
+* $a_j^{(l)}$: The activation output of the neuron ($a_j^{(l)} = f(z_j^{(l)})$).
+
+To update a weight, we need to find $\frac{\partial L}{\partial w_{jk}^{(l)}}$. 
+
+Using the chain rule, we can break this down into three local gradients:
+$$\frac{\partial L}{\partial w_{jk}^{(l)}} = \frac{\partial L}{\partial z_j^{(l)}} \cdot \frac{\partial z_j^{(l)}}{\partial w_{jk}^{(l)}}$$
+
+Since $z_j^{(l)} = \sum_k w_{jk}^{(l)} a_k^{(l-1)} + b_j^{(l)}$, the second term $\frac{\partial z_j^{(l)}}{\partial w_{jk}^{(l)}}$ is simply $a_k^{(l-1)}$ (the activation from the previous layer).
+
+### B. The Four Fundamental Equations of Backpropagation
+To compute this efficiently across thousands of layers, we define an error term $\delta_j^{(l)} = \frac{\partial L}{\partial z_j^{(l)}}$. This represents the "blame" assigned to a specific neuron for the final error. 
+
+At a Master's level, backpropagation is defined by these four vectorized equations:
+
+**1. The Error at the Output Layer ($L$):**
+$$\delta^{(L)} = \nabla_a L \odot f'(z^{(L)})$$
+*(The gradient of the loss function with respect to the output activations, element-wise multiplied by the derivative of the output activation function).*
+
+**2. The Error in the Hidden Layers ($l$):**
+$$\delta^{(l)} = ((W^{(l+1)})^T \delta^{(l+1)}) \odot f'(z^{(l)})$$
+*(This is the magic step. We multiply the error from the next layer by the transpose of the weight matrix. This effectively passes the "blame" backward through the network).*
+
+**3. The Rate of Change for the Bias:**
+$$\frac{\partial L}{\partial b^{(l)}} = \delta^{(l)}$$
+
+**4. The Rate of Change for the Weights:**
+$$\frac{\partial L}{\partial W^{(l)}} = \delta^{(l)} (a^{(l-1)})^T$$
+
+### C. Gradient Descent: Updating the Synapses
+Once Backpropagation computes all the gradients ($\frac{\partial L}{\partial W}$), the network must actually physically change the weights. This is done via an optimization algorithm, the most basic being **Stochastic Gradient Descent (SGD)**.
+
+Given a learning rate $\eta$ (a scalar determining how big of a step to take):
+$$W^{(l)}_{new} = W^{(l)}_{old} - \eta \frac{\partial L}{\partial W^{(l)}}$$
+$$b^{(l)}_{new} = b^{(l)}_{old} - \eta \frac{\partial L}{\partial b^{(l)}}$$
+
+We subtract the gradient because the gradient points in the direction of the *steepest ascent* (maximum error). We want to go down into the valley of minimum error.
+
+### D. The Biological Rupture: Why the Brain Doesn't Do Backprop
+Up to this point, ANNs mirror the brain well. However, Backpropagation is where the biological analogy completely shatters. Neuroscientists largely agree that the human brain **cannot** be doing backpropagation for several structural reasons:
+
+1.  **The Weight Transport Problem:** Look at Equation 2. To calculate the error at a hidden layer, the network needs the exact transpose of the forward weight matrix $(W^{(l+1)})^T$. Biological synapses are one-way chemical streets; there is no known biological mechanism for a neuron to perfectly read the synaptic strength of a downstream connection and use it backward.
+2.  **Global vs. Local Error:** Backprop requires a global error signal to be frozen in time and passed backward layer by layer. Biological neurons operate continuously and only have access to **local** information (the neurons directly touching them). 
+3.  **Hebbian Learning vs. Calculus:** The brain likely uses a form of *Spike-Timing-Dependent Plasticity (STDP)*, a localized learning rule where synapses strengthen if the pre-synaptic neuron fires milliseconds before the post-synaptic neuron. It relies on localized timing, not chain-rule calculus.
+
+*Note for ML students: While backprop is biologically implausible, researchers are actively exploring biologically plausible alternatives like "Predictive Coding" or "Feedback Alignment," though none currently match backprop's sheer mathematical efficiency on GPUs.*
+
+## 16. The Orchestration: The Neural Network Training Loop
+Having defined the network's topology (FNN, CNN, RNN) and the learning mechanics (Backpropagation, Adam), we must now orchestrate how the network interacts with the dataset over time. The **Training Loop** is the iterative procedural algorithm that feeds data to the model, calculates errors, and updates the weights until convergence is reached.
+
+### A. The Master's Level Vocabulary of Time
+Before writing the loop, we must mathematically define how "time" and "exposure" are measured during training. Let the total dataset have $N$ samples, and the mini-batch size be $m$.
+
+1.  **Mini-Batch:** A small subset of the training data (e.g., $m = 64$ samples). 
+2.  **Iteration (or Step):** One complete forward and backward pass on a *single mini-batch*. 
+    * *Example:* If $N = 1,024$ and $m = 64$, there are $1,024 / 64 = 16$ iterations required to see the whole dataset.
+3.  **Epoch:** One complete pass through the *entire* training dataset. 
+    * *Example:* Completing all 16 iterations equals exactly 1 Epoch. A network typically trains for dozens or hundreds of epochs.
+
+### B. The 6-Step Algorithm (The Iteration Cycle)
+For every mini-batch in the dataset, the network executes a strict chronological sequence. This is the exact logic underlying frameworks like PyTorch and TensorFlow.
+
+Let $\theta$ represent all parameters (weights and biases) in the network, $X_b$ be the batch inputs, and $Y_b$ be the true labels.
+
+1.  **Sample the Batch:** Draw a randomized mini-batch $(X_b, Y_b)$ from the dataset. *(Randomization prevents the network from memorizing the order of the data).*
+2.  **The Forward Pass:** Pass the data through the network to generate predictions.
+    $$\hat{Y}_b = f(X_b; \theta)$$
+3.  **Compute the Loss:** Evaluate how wrong the predictions are using a loss function $\mathcal{L}$.
+    $$J = \mathcal{L}(\hat{Y}_b, Y_b)$$
+4.  **Zero the Gradients:** *(Crucial Implementation Detail)* In computational graphs (like PyTorch), gradients accumulate by default. Before calculating new derivatives, we must manually wipe the slate clean: $\nabla_\theta J = 0$.
+5.  **The Backward Pass (Backpropagation):** Compute the gradient of the loss with respect to every parameter in the network using the chain rule.
+    $$\text{Calculate } \nabla_\theta J$$
+6.  **The Optimizer Step:** Update the weights using the chosen algorithm (e.g., Adam) to move down the loss landscape.
+    $$\theta \leftarrow \text{Adam}(\theta, \nabla_\theta J, \eta)$$
+
+### C. Master's Level Pseudo-Code
+Bridging the gap between mathematical notation and code, a standard training loop looks like this:
+
+```python
+# The Outer Loop (Epochs)
+for epoch in range(num_epochs):
+    
+    # Shuffle the dataset to ensure I.I.D. (Independent and Identically Distributed) batches
+    dataset.shuffle() 
+    
+    # The Inner Loop (Mini-Batches)
+    for batch_X, batch_Y in dataset.get_batches(batch_size):
+        
+        # 1. Forward Pass
+        predictions = model(batch_X)
+        
+        # 2. Calculate Loss
+        loss = loss_function(predictions, batch_Y)
+        
+        # 3. Zero Gradients
+        optimizer.zero_grad()
+        
+        # 4. Backward Pass (Calculus)
+        loss.backward()
+        
+        # 5. Update Weights (Linear Algebra)
+        optimizer.step()
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
