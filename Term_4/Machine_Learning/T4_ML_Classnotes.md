@@ -116,3 +116,10 @@ SVM - Support Vector Machines are supervised learning models for classification 
 6. K-means++ and K-Medoids
 7. DBSCAN
 8. PCA Clustering Method
+
+## Classnotes Week 8
+*26 May 2026, 1-3 PM*
+
+1. Arttificial Neural networks, Types, Brain
+2. Activation Functions and Common Activation Functions
+3. https://alexlenail.me/NN-SVG/
