@@ -130,3 +130,55 @@ While Universal Approximation is mathematically proven, finding those optimal pa
 ### D. Adversarial Vulnerability
 * **The Problem:** Because ANNs draw highly complex, jagged decision boundaries in hyper-dimensional space, tiny mathematical perturbations to the input data $x \to x + \epsilon$ (imperceptible to human eyes) can completely shatter the network's prediction. 
 * **Biological Contrast:** Human perception is incredibly robust to noise. Changing a few pixels on a stop sign will never trick a human driver into thinking it is a speed limit sign.
+
+## 10. The Non-Linear Engine: Activation Functions
+If the weights and biases dictate *where* a neuron is looking in the data space, the **activation function** dictates *whether* that neuron should care about what it sees. 
+
+Fundamentally, an activation function $f(z)$ is a mathematical gate applied to the linear combination of inputs ($z = W^T X + b$). 
+
+### The Mathematical Necessity of Non-Linearity
+The Universal Approximation Theorem relies entirely on non-linearity. If we used a linear activation function, $f(z) = cz$, composing multiple layers would just result in another linear function. 
+Proof sketch:
+Let Layer 1 be $z^{(1)} = W_1 x$. 
+Let Layer 2 be $z^{(2)} = W_2 z^{(1)} = W_2 (W_1 x)$. 
+Because matrix multiplication is associative, we can define $W_{new} = W_2 W_1$. The entire network collapses into $z^{(2)} = W_{new} x$. It cannot learn curves, boundaries, or real-world complexity.
+
+### Biological Contrast
+* **Biological Brain:** Neurons fire via an **Action Potential**. This is a discrete, binary, all-or-nothing voltage spike. 
+* **Artificial Network:** We require continuous, **differentiable** functions. Because we learn via Backpropagation (calculating gradients using the chain rule), any function with infinite discontinuities or flat zero derivatives everywhere would prevent the network from updating its weights.
+
+## 11. Common Activation Functions & Their Optimization Impact
+The choice of activation function directly impacts the topology of the loss landscape and the flow of gradients during backpropagation. The gradient of the activation function, $f'(z)$, acts as a scaling factor for the error signal passing backward.
+
+### A. Sigmoid
+* **Equation:** $\sigma(z) = \frac{1}{1 + e^{-z}}$
+* **Derivative:** $\sigma'(z) = \sigma(z)(1 - \sigma(z))$
+* **Range:** $(0, 1)$
+* **Biological Link:** Mimics the saturation rate of biological neurons (firing at a maximum rate or not at all).
+* **Master's Level Critique:** It is rarely used in modern hidden layers due to the **Vanishing Gradient Problem**. The maximum value of its derivative is $0.25$. When you chain multiply $0.25$ backward across 10 layers, the gradient becomes exponentially small ($0.25^{10} \approx 0.0000009$). The early layers of the network stop learning completely. It is now mostly restricted to the output node of binary classification tasks.
+
+### B. Hyperbolic Tangent (Tanh)
+* **Equation:** $\tanh(z) = \frac{e^z - e^{-z}}{e^z + e^{-z}}$
+* **Derivative:** $\tanh'(z) = 1 - \tanh^2(z)$
+* **Range:** $(-1, 1)$
+* **Master's Level Critique:** A scaled and shifted version of the Sigmoid function. It is **zero-centered**, which makes optimization easier because gradients do not all share the same sign (preventing zigzagging dynamics during Gradient Descent). However, it still suffers heavily from vanishing gradients at its saturated tails.
+
+### C. Rectified Linear Unit (ReLU)
+* **Equation:** $f(z) = \max(0, z)$
+* **Derivative:** $f'(z) = 1$ if $z > 0$, else $0$
+* **Range:** $[0, \infty)$
+* **Master's Level Critique:** The undisputed default for modern Feedforward and Convolutional Networks. Because the derivative for positive inputs is exactly $1$, the gradient passes through ReLU perfectly without vanishing, allowing for the training of incredibly deep networks (like ResNet).
+* **The "Dying ReLU" Problem:** If a large gradient update causes a neuron's weights to shift such that $z \le 0$ for all inputs, the gradient becomes $0$ forever. That neuron is "dead" and will never update again.
+
+### D. Leaky ReLU & Parametric ReLU (PReLU)
+* **Equation:** $f(z) = z$ if $z > 0$, else $\alpha z$ (where $\alpha$ is a small constant like $0.01$)
+* **Master's Level Critique:** Designed specifically to fix the Dying ReLU problem. By allowing a small negative slope, the gradient is never exactly zero, keeping the neuron "alive" during backpropagation. In PReLU, $\alpha$ is not fixed; it is treated as a parameter learned by the network.
+
+### E. Softmax
+* **Equation:** $\text{Softmax}(z_i) = \frac{e^{z_i}}{\sum_{j=1}^{K} e^{z_j}}$
+* **Range:** $(0, 1)$, and the sum of all outputs equals $1$.
+* **Master's Level Critique:** Used exclusively in the output layer for **multi-class classification**. It takes a vector of arbitrary real-valued scores (logits) and squashes them into a normalized probability distribution. It exponentially penalizes lower values while isolating the highest value (a "soft" version of argmax).
+
+### F. GELU (Gaussian Error Linear Unit)
+* **Equation:** $\text{GELU}(z) = z \cdot \Phi(z)$ (where $\Phi(z)$ is the standard Gaussian cumulative distribution function).
+* **Master's Level Critique:** The activation function of choice for **Transformers (GPT, BERT)**. Unlike ReLU, which sharply drops to zero, GELU weights inputs by their percentile in a Gaussian distribution. This creates a smooth curve at the origin that mathematically combines the properties of dropout (stochastic zeroing) and ReLU (clipping), leading to superior convergence in deep Natural Language Processing models.
