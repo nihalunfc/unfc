@@ -1,7 +1,7 @@
 # Assignment_2
-University of Niagara Falls Canada
-Master of Data Analytics
-DAMO630 – Advanced Data Analytics
+University of Niagara Falls Canada \
+Master of Data Analytics \
+DAMO630 – Advanced Data Analytics \
 Due date: Sunday of Week 9, 11:59 PM
 
 ## Learning outcomes
