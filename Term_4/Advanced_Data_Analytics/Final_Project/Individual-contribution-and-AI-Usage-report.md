@@ -1,0 +1,7 @@
+## Appendix A: Individual Contribution & AI Usage Report
+
+*This section details individual team member contributions and the transparent, academic use of AI tooling to support the data science pipeline.*
+
+| Student Name | Role / Responsibility | Contribution Details | Use of AI Tools (if applicable) |
+| :--- | :--- | :--- | :--- |
+| **[Your Name Here]** | Lead Data Analyst / Cloud Analytics Architect | Designed and executed the "Hub and Spoke" data architecture in PySpark to merge Kaggle Hotel Bookings with TripAdvisor reviews.<br><br>Engineered the Synthetic Data Generation module using the Python `Faker` library to simulate cross-property POS transactions.<br><br>Conducted Exploratory Data Analysis (EDA) using Pandas and Seaborn.<br><br>Built and evaluated the Kaplan-Meier Survival Analysis model to predict booking churn.<br><br>Developed the logic for the NLP Sentiment Analysis and automated Recommendation Engine.<br><br>Authored the Executive Summary and documented the Databricks pipeline. | Utilized **Gemini (Google AI)** as a coding assistant and strategic sounding board. AI was explicitly used to:<br><br>• Translate conceptual business logic into optimized PySpark and Pandas code.<br>• Debug Databricks environment warnings (e.g., resolving PySpark window partitioning errors).<br>• Generate boilerplate syntax for `matplotlib`/`seaborn` data visualizations.<br>• Brainstorm narrative structuring for the Markdown documentation and Executive Summary to ensure alignment with business objectives. |
