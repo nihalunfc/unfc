@@ -1,11 +1,11 @@
 # Technical Report: Maximizing Guest Retention through Cross-Property Analytics
-**Course:** DAMO630 – Advanced Data Analytics (Master of Data Analytics, UNF)
+**Course:** DAMO630 – Advanced Data Analytics (Master of Data Analytics, UNF Canada)
 **Authors:** Nihal, Gerald, Ansu, Souren
 
 ---
 
 ## 1. Introduction and Problem Statement
-The hospitality industry, particularly large conglomerates like the Canadian Niagara Hotels (CNH) Group, faces significant revenue leakage due to late-stage booking cancellations. Traditionally, hotel management systems view guest data in silos—analyzing room reservations completely separate from point-of-sale (POS) data at on-property amenities like casinos, spas, and fine dining restaurants. 
+The hospitality industry, particularly large hotel conglomerates, faces significant revenue leakage due to late-stage booking cancellations. Traditionally, hotel management systems view guest data in silos—analyzing room reservations completely separately from point-of-sale (POS) data at on-property amenities like casinos, spas, and fine dining restaurants. 
 
 This siloed approach blinds management to a guest's true engagement level. Our problem statement addresses this gap: **How can we integrate cross-property behavioral data to predict when a guest will cancel, and how can we automate targeted interventions to save at-risk revenue?**
 
@@ -57,7 +57,7 @@ The Kaplan-Meier curves validated our core business hypothesis. The "On-Property
 The NLP engine successfully segmented our audience. The output visualizations demonstrate the engine's ability to isolate the specific volume of dissatisfied guests requiring service recovery, while intelligently distributing high-margin upsells to the positively-scored majority based on their demonstrated textual interests.
 
 ## 6. Limitations
-* **Synthetic Data Assumptions:** While our `Faker` script generated highly realistic spending distributions, the core correlation between spending and survival was built on a synthetic assumption. If applied to real CNH Group POS data, the precise retention margins may vary. However, the *architecture* is perfectly built to ingest real data immediately.
+* **Synthetic Data Assumptions:** While our `Faker` script generated highly realistic spending distributions, the core correlation between spending and survival was built on a synthetic assumption. If applied to real-world proprietary POS data, the precise retention margins may vary. However, the *architecture* is perfectly built to ingest real data immediately.
 * **Lexicon NLP Constraints:** `TextBlob` relies on predefined word dictionaries. It can occasionally misclassify sarcasm or complex negative phrasing. Future iterations could integrate LLMs (e.g., BERT) for deeper contextual understanding.
 
 ## 7. Business Recommendations
