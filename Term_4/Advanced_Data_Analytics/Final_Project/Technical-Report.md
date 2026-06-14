@@ -37,10 +37,10 @@ We utilized the `lifelines` Python library to calculate Kaplan-Meier survival cu
 * **Duration Variable:** `lead_time` (Days between booking and arrival).
 * **Event Variable:** `is_canceled` (Boolean churn indicator).
 We split the data into two distinct cohorts: *On-Property Spenders* vs. *No Extra Spend* to mathematically compare their retention probabilities over time.
-The retention probability over time is mathematically evaluated using the Kaplan-Meier estimator.
- Let $t_1 < t_2 < \dots < t_k$ be the distinct points in time where at least one booking cancellation occurred. The probability of a booking surviving past time $t$ is calculated as:
+*The retention probability over time is mathematically evaluated using the Kaplan-Meier estimator.
+* Let $t_1 < t_2 < \dots < t_k$ be the distinct points in time where at least one booking cancellation occurred. The probability of a booking surviving past time $t$ is calculated as:
 $$S(t) = \prod_{i: t_i \le t} \left(1 - \frac{d_i}{n_i}\right)$$
-Where:$d_i$ represents the number of distinct cancellations (events) occurring at time $t_i$.$n_i$ represents the total number of active, un-canceled bookings surviving just prior to $t_i$.
+*Where:$d_i$ represents the number of distinct cancellations (events) occurring at time $t_i$.$n_i$ represents the total number of active, un-canceled bookings surviving just prior to $t_i$.
 
 **C. NLP Sentiment Analysis & Recommendation Engine:**
 Using the `TextBlob` library, we deployed a PySpark User-Defined Function (UDF) to extract polarity scores (-1.0 to 1.0) from the historical review text. We then built a prescriptive logic engine:
