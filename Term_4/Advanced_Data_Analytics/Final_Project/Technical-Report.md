@@ -73,3 +73,8 @@ Based on our cloud analytics pipeline, we prescribe the following actionable rec
 1. **Implement Lead-Time Triggered Marketing:** Management should abandon generic "batch-and-blast" emails. Instead, marketing automation should be synced with our Kaplan-Meier survival curve, triggering targeted incentives strictly to room-only guests 48 hours before they hit their highest-risk cancellation windows.
 2. **Automate Service Recovery:** Integrate our NLP module into the central feedback system. By automatically issuing recovery discounts to negative-sentiment guests within minutes of review submission, the hotel can intercept churn before the guest books with a competitor.
 3. **Break Down Data Silos:** To achieve true Customer Lifetime Value (CLV), hotel IT infrastructure must bridge the gap between the Central Reservation System (CRS) and amenity Point-of-Sale (POS) systems. As proven by our models, knowing what a guest does *outside* their room is the key to keeping them *in* it.
+
+## 8. Data Sources
+
+* **Hotel Booking Demand:** Christensen, J. (2019). *Hotel booking demand*. Kaggle. https://www.kaggle.com/datasets/jessemostipak/hotel-booking-demand
+* **Trip Advisor Hotel Reviews:** Alam, M. (2020). *Trip Advisor Hotel Reviews*. Kaggle. https://www.kaggle.com/datasets/andrewmvd/trip-advisor-hotel-reviews
