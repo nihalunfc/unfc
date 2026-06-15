@@ -1,29 +1,29 @@
-# DAMO630 – Advanced Data Analytics - Final Project
-## Advanced Research/Industry Data Analytics Project
-Master of Data Analytics \
-University of Niagara Falls \
-*Due: 14 June 2026, Sunday*
+# DAMO630 – Advanced Data Analytics: Final Project
+## Maximizing Guest Retention through Cross-Property Analytics
 
-This folder will cover the details and files for the Final Group Project of ADA. 
-
-## Project_Title
-
-## Team Delegation
-
-**Nihal and Gerald: Data Engineering (Nihal)**
-* **The Tasks:** Responsible for setting up the Databricks environment and handling the "Synthetic Data Generation" module. Will write the Python script to generate the cross-property spending logs and merge them with the real Kaggle booking data.
-* **Strategic Value:** Manages the core cloud infrastructure and data pipeline.
-
-**Ansu and Souren: Churn & Survival**
-* **The Tasks:** Owns the "Survival Analysis" module. They will take the merged dataset and build the Kaplan-Meier and Cox Proportional Hazards models to predict exactly when a guest is likely to churn.
-* **Deliverable Contribution:** Will write the methodology and results sections for the Survival Analysis in the final Technical Report.
-
-**Gerald and Nihal: NLP & Recommendation Engine**
-* **The Tasks:** Handles the remaining two modules: "Sentiment Analysis" on the TripAdvisor reviews and building the "Recommendation System" (Collaborative Filtering).
-* **Deliverable Contribution:** Will integrate their recommendations with the churn predictions and write the literature review/related work section for the report.
-
-**Souren and Ansu: Business Intelligence  & Tech Writing**
-* **The Tasks:** This person is responsible for the visual and business communication. Will connect the Databricks output to a dashboard (Streamlit or PowerBI) to satisfy the "Business-oriented data visualizations" requirement.
-* **Deliverable Contribution:** Will build the executive "Business Presentation" and format the final Technical Report, ensuring the recommendations translate analytics into actionable business value.
+**Master of Data Analytics** **University of Niagara Falls, Canada** **Due:** 14 June 2026 
 
 ---
+
+## Project Overview
+This repository contains the end-to-end cloud analytics pipeline and deliverables for our Advanced Data Analytics final project. By integrating synthetic point-of-sale data with real-world hotel booking and review datasets, this project applies Survival Analysis and Natural Language Processing to predict guest churn and recommend automated, personalized retention strategies.
+
+---
+
+## Repository Structure & File Descriptions
+
+* **`Technical-Report.md`**: The comprehensive technical document covering our problem statement, methodology, cloud setup, analysis of results, limitations, and actionable business recommendations.
+* **`Business-Presentation.pdf`**: The executive slide deck summarizing our key insights, visualizations, and financial recommendations tailored for a non-technical audience.
+* **`Data-Pipeline.ipynb`**: The Databricks/PySpark notebook responsible for ingesting the Kaggle datasets, utilizing the `Faker` library for synthetic POS data generation, and cleaning the final "Hub and Spoke" dataset.
+* **`Models-and-Analytics.ipynb`**: The core analytics notebook containing our exploratory data analysis (EDA), Kaplan-Meier survival curves, and the text-processing NLP engine.
+* **`output.html`**: A static HTML export of our final Databricks notebook execution for quick browser-based viewing of our visualizations and code outputs.
+* **`requirements.txt`**: A list of all specific Python dependencies (e.g., `lifelines`, `TextBlob`, `Faker`) required to reproduce our environment.
+
+---
+
+## Team Delegation & Individual Contributions
+
+* **Nihal:** Lead Data Engineer. Designed the Databricks architecture, authored the `Data-Pipeline.ipynb` code, and built the synthetic data generation module. 
+* **Gerald:** Lead NLP & Recommendation Developer. Authored the sentiment analysis UDFs and rule-based recommendation logic within the analytics notebook, and co-wrote the Related Work section of the report.
+* **Ansu:** Lead Predictive Modeler. Built and evaluated the Kaplan-Meier and Cox Proportional Hazards models for the Survival Analysis module, and authored the Methodology and Results sections of the report.
+* **Souren:** Lead Business Intelligence & Communications. Developed the final business-oriented visualizations, authored the executive Business Presentation, and formatted the final Technical Report to ensure alignment with business value.
