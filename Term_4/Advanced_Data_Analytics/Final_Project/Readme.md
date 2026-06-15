@@ -14,8 +14,7 @@ This repository contains the end-to-end cloud analytics pipeline and deliverable
 
 * **`Technical-Report.md`**: The comprehensive technical document covering our problem statement, methodology, cloud setup, analysis of results, limitations, and actionable business recommendations.
 * **`Business-Presentation.pdf`**: The executive slide deck summarizing our key insights, visualizations, and financial recommendations tailored for a non-technical audience.
-* **`Data-Pipeline.ipynb`**: The Databricks/PySpark notebook responsible for ingesting the Kaggle datasets, utilizing the `Faker` library for synthetic POS data generation, and cleaning the final "Hub and Spoke" dataset.
-* **`Models-and-Analytics.ipynb`**: The core analytics notebook containing our exploratory data analysis (EDA), Kaplan-Meier survival curves, and the text-processing NLP engine.
+* **`Data-Pipeline.ipynb`**: The Databricks/PySpark notebook responsible for ingesting the Kaggle datasets, utilizing the `Faker` library for synthetic POS data generation, and cleaning the final dataset, the core analytics containing our exploratory data analysis (EDA), Kaplan-Meier survival curves, and the text-processing NLP engine.
 * **`output.html`**: A static HTML export of our final Databricks notebook execution for quick browser-based viewing of our visualizations and code outputs.
 * **`requirements.txt`**: A list of all specific Python dependencies (e.g., `lifelines`, `TextBlob`, `Faker`) required to reproduce our environment.
 
