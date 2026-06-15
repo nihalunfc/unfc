@@ -53,11 +53,14 @@ Using the `TextBlob` library, we deployed a PySpark User-Defined Function (UDF) 
 Our initial analysis confirmed industry standards: bookings made further in advance carry a significantly higher baseline risk of cancellation. Furthermore, non-refundable deposits act as a near-perfect barrier to churn.
 
 **2. Survival Analysis Insights:**
-*(Placeholder: Insert Kaplan-Meier Graph Here)*
+<img width="1014" height="624" alt="KP" src="https://github.com/user-attachments/assets/b479ef21-990e-48b5-b84a-46280924d650" />
+
 The Kaplan-Meier curves validated our core business hypothesis. The "On-Property Spenders" cohort maintained a significantly higher probability of retaining their reservations across all time horizons compared to standard room-only bookings. The steepest drop-offs in the survival curve revealed the specific "high-risk windows" (e.g., 30 days and 14 days out) where standard bookings are most vulnerable to cancellation.
 
 **3. NLP Engine Efficacy:**
-*(Placeholder: Insert Sentiment Distribution & Offer Bar Charts Here)*
+<img width="859" height="547" alt="sentiment" src="https://github.com/user-attachments/assets/5192cfc1-12c0-4ef7-aaba-b35f3c48eb8e" />
+<img width="1152" height="547" alt="offer" src="https://github.com/user-attachments/assets/c72cbdc6-90e9-411c-b398-bf8138bfebd4" />
+
 The NLP engine successfully segmented our audience. The output visualizations demonstrate the engine's ability to isolate the specific volume of dissatisfied guests requiring service recovery, while intelligently distributing high-margin upsells to the positively-scored majority based on their demonstrated textual interests.
 
 ## 6. Limitations
